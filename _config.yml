@@ -1,0 +1,29 @@
+title:              Atlas
+email:              petroskilp@gmail.com
+description:        Regulation of gene transcription in humans by splicing factors
+author:             Herai's LAB
+baseurl:            "/sites_teste"
+url:                "https://codelp.github.io"
+
+# Social Profiles
+twitter_username:   SBootstrap
+github_username:    StartBootstrap
+facebook_username:  StartBootstrap
+instagram_username:  
+linkedin_username:
+
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+
+# Build settings
+markdown:           kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+  - jekyll-scholar
+
+scholar:
+  style: modern-language-association
