@@ -50,6 +50,8 @@ GEM
       citeproc-ruby (~> 1.0)
       csl-styles (~> 1.0)
       jekyll (~> 4.0)
+    jekyll-seo-tag (2.7.1)
+      jekyll (>= 3.8, < 5.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
@@ -85,10 +87,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  jekyll (>= 3.8.5)
+  jekyll (~> 4)
   jekyll-feed (~> 0.6)
   jekyll-paginate (~> 1.1.0)
   jekyll-scholar
+  jekyll-seo-tag
   jekyll-sitemap
   tzinfo-data
 
