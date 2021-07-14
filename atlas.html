@@ -75,7 +75,7 @@ background: "/img/dna.png"
     <th style="width: 10%">Symbol</th>
     <th style="width: 30%">Name</th>
     <th style="width: 10%">Links</th>
-    <th style="width: 50%">String</th>
+    <th style="width: 50%">string-db</th>
   </tr>
 
   {% for row in site.data.Atlas %}
@@ -120,7 +120,7 @@ background: "/img/dna.png"
       
       {% if a[1] != blank %}
       <a href="{{ row['string-db-link'] }}"
-        ><div class="img-fluid">
+        ><div class="img-fluid" style="overflow: hidden;">
           <img
             style="
               width: 200%;
