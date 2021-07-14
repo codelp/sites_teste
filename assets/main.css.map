@@ -105,7 +105,7 @@
 		"assets/vendor/startbootstrap-clean-blog/scss/sections/_post.scss"
 	],
 	"sourcesContent": [
-		"@import \"styles\";\n",
+		"@import \"styles\";\n\n",
 		"// Import Core Clean Blog SCSS\n@import \"../assets/vendor/startbootstrap-clean-blog/scss/styles.scss\";\n",
 		"// Import variables\n@import \"./variables\";\n\n// Import Bootstrap\n@import \"../../bootstrap/scss/bootstrap\";\n\n// Global CSS\n@import \"./global\";\n\n// Components\n@import \"./components/buttons\";\n@import \"./components/navbar\";\n\n// Sections\n@import \"./sections/contact\";\n@import \"./sections/footer\";\n@import \"./sections/masthead\";\n@import \"./sections/post\";",
 		"@import \"./variables/colors.scss\";\n@import \"./variables/typography.scss\";",
