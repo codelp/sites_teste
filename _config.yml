@@ -1,17 +1,20 @@
 title:              Atlas
-email:              petroskilp@gmail.com
+email:
 description:        Regulation of gene transcription in humans by splicing factors
 author:             Herai's LAB
 baseurl:            "/sites_teste"
 url:                "https://codelp.github.io"
 
 # Social Profiles
-twitter_username:   SBootstrap
-github_username:    StartBootstrap
-facebook_username:  StartBootstrap
-instagram_username:  
+twitter_username:
+github_username:
+facebook_username:
+instagram_username:
 linkedin_username:
 
+sponsors:
+  - link: https://www.pucpr.br/
+    image: img/sponsors/pucpr_red.svg
 # Add your google-analytics ID here to activate google analytics
 google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
 

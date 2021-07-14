@@ -7,6 +7,18 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <ul class="list-inline text-center">
+          {% if site.sponsors %}
+          {% for row in site.sponsors %}
+          <li class="list-inline-item">
+            <a href="{{ row.link }}">
+              <span class="fa-lg">
+                
+                <img src="{{ row.image }}">
+              </span>
+            </a>
+          </li>
+          {% endfor %}
+          {% endif %}
           {% if site.email %}
           <li class="list-inline-item">
             <a href="mailto:{{ site.email | encode_email }}">
