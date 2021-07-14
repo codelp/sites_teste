@@ -71,12 +71,12 @@ background: "/img/dna.png"
 </div>
 <div class="input-group rounded">
   <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-    aria-describedby="search-addon"  id="myInput" onkeyup="myFunction()" onsearch="myFunction()"/>
+    aria-describedby="search-addon"  id="textSearch" onkeyup="geneSearch()" onsearch="geneSearch()"/>
   <span class="input-group-text border-0" id="search-addon">
     <i class="fas fa-search"></i>
   </span>
 </div>
-<table id="myTable" class="table">
+<table id="geneTable" class="table">
   <tr class="header">
     <th style="width: 10%">Symbol</th>
     <th style="width: 30%">Name</th>
@@ -144,12 +144,12 @@ background: "/img/dna.png"
   {% endfor %}
 </table>
 <script>
-  function myFunction() {
+  function geneSearch() {
     // Declare variables
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
+    input = document.getElementById("textSearch");
     filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
+    table = document.getElementById("geneTable");
     tr = table.getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query
