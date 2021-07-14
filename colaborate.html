@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" href="/sites_teste/assets/main.css">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
-  <link rel="canonical" href="https://codelp.github.io/sites_teste/contact.html">
+  <link rel="canonical" href="https://codelp.github.io/sites_teste/colaborate.html">
   <link rel="alternate" type="application/rss+xml" title="Atlas" href="/sites_teste/feed.xml">
 
 </head>
@@ -70,7 +70,7 @@
           <div class="page-heading">
             <h1></h1>
             
-            <span class="subheading">Contact us for any interest on the Atlas of Curated Splicing Regulators</span>
+            <span class="subheading">Collaborate with us by improving our Atlas of Curated Splicing Regulators</span>
             
           </div>
         </div>
@@ -82,8 +82,8 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        <p>For any questions, enquire or comments about ACuSR, provide us your valuable comments. Once we get time, we will soon provide you a feedback.</p>
-<form name="sentMessage" id="contactForm" novalidate>
+        <p>Help us to keep our atlas updated by providing accurate information of molecules regulating splicing process in humans. After providing your valuable inputs, we will double check the information and once we have validated them, we will contact you and ask you to include your name in our website as a collaborator and data curator. We look forward on having your feedback and support!!</p>
+<form name="sentMessage" id="colaborateForm" novalidate>
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
       <label>Name</label>
@@ -99,9 +99,30 @@
     </div>
   </div>
   <div class="control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls">
+      <label>Gene/Molecule</label>
+      <input type="text" class="form-control" placeholder="Gene/Molecule" id="gene_molecule" required data-validation-required-message="Please enter Gene/Molecule.">
+      <p class="help-block text-danger"></p>
+    </div>
+  </div>
+  <div class="control-group">
     <div class="form-group floating-label-form-group controls">
-      <label>Comments</label>
-      <textarea rows="5" class="form-control" placeholder="Comments" id="comments" required data-validation-required-message="Please enter a message."></textarea>
+      <label>Description</label>
+      <textarea rows="5" class="form-control" placeholder="Description" id="description" required data-validation-required-message="Please enter a description."></textarea>
+      <p class="help-block text-danger"></p>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls">
+      <label>Activity in Splicing</label>
+      <textarea rows="5" class="form-control" placeholder="Activity in Splicing" id="activity" required data-validation-required-message="Please enter activity in splicing."></textarea>
+      <p class="help-block text-danger"></p>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls">
+      <label>References</label>
+      <textarea rows="5" class="form-control" placeholder="References" id="references" required data-validation-required-message="Please enter references."></textarea>
       <p class="help-block text-danger"></p>
     </div>
   </div>
@@ -160,13 +181,14 @@
 <script src="/sites_teste/assets/scripts.js"></script>
 
 
+
   <!-- Form Validation -->
   <script src="/sites_teste/assets/vendor/startbootstrap-clean-blog/js/jqBootstrapValidation.js"></script>
   <!-- Send Form -->
   <script>
     $(function () {
 
-      $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
+      $("#colaborateForm input,#colaborateForm textarea").jqBootstrapValidation({
         preventSubmit: true,
         submitError: function ($form, event, errors) {
           // additional error messages or events
@@ -176,21 +198,23 @@
           // get values from FORM
           var name = $("input#name").val();
           var email = $("input#email").val();
-          var comments = $("textarea#comments").val();
-          var firstName = name; // For Success/Failure Message
-          // Check for white space in name for Success/Fail message
-          if (firstName.indexOf(' ') >= 0) {
-            firstName = name.split(' ').slice(0, -1).join(' ');
-          }
+          var gene_molecule = $("input#gene_molecule").val();
+          var description = $("textarea#description").val();
+          var activity = $("textarea#activity").val();
+          var references = $("textarea#references").val();
+          
           $this = $("#sendMessageButton");
           $this.prop("disabled", true);
-          //https://docs.google.com/forms/d/e/1FAIpQLSeeJuoVN7C6Is6zyt-fS3Wwt9RZC6AQ51_NaIkXcBKK9gezFQ/viewform?usp=pp_url&entry.582319841=name&entry.2085246190=email&entry.1456197310=comments
-          var formId = '1FAIpQLSeeJuoVN7C6Is6zyt-fS3Wwt9RZC6AQ51_NaIkXcBKK9gezFQ'
+          //https://docs.google.com/forms/d/e/1FAIpQLScUB06uuc8wMfg69Z_L39qHDGtHzkK_tyukxvJTEPEy64qd0A/viewform?usp=pp_url&entry.448008776=name&entry.1148602240=email&entry.1131006880=gene&entry.1037379784=desc&entry.1153719253=activity&entry.1091222598=ref
+          var formId = '1FAIpQLScUB06uuc8wMfg69Z_L39qHDGtHzkK_tyukxvJTEPEy64qd0A'
           var url = 'https://docs.google.com/forms/d/e/' + formId + '/formResponse'
           var data ={
-            "entry.582319841": name,
-            "entry.2085246190": email,
-            "entry.1456197310": comments,
+            "entry.448008776": name,
+            "entry.1148602240": email,
+            "entry.1131006880": gene_molecule,
+            "entry.1037379784": description,
+            "entry.1153719253": activity,
+            "entry.1091222598": references,
             "submit": "SUBMIT"
           }
           $.ajax({
@@ -206,7 +230,7 @@
                 $('#success > .alert-success').append("<strong>Your message has been sent. </strong>");
                 $('#success > .alert-success').append('</div>');
                 //clear all fields
-                $('#contactForm').trigger("reset");
+                $('#colaborateForm').trigger("reset");
               },
               200: function(data) {//200 is a success code. it went through!
                 // Success message
@@ -215,16 +239,16 @@
                 $('#success > .alert-success').append("<strong>Your message has been sent. </strong>");
                 $('#success > .alert-success').append('</div>');
                 //clear all fields
-                $('#contactForm').trigger("reset");
+                $('#colaborateForm').trigger("reset");
               },
               403: function(data) {//403 is when something went wrong and the submission didn't go through
                 // Fail message
                 $('#success').html("<div class='alert alert-danger'>");
                 $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;").append("</button>");
-                $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!"));
+                $('#success > .alert-danger').append($("<strong>").text("Sorry " + name + ", it seems that my mail server is not responding. Please try again later!"));
                 $('#success > .alert-danger').append('</div>');
                 //clear all fields
-                $('#contactForm').trigger("reset");
+                $('#colaborateForm').trigger("reset");
               },
             },
             complete: function () {
@@ -252,7 +276,6 @@
       $('#success').html('');
     });
   </script>
-
 
 
 

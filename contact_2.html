@@ -49,7 +49,7 @@
           <a class="nav-link" href="/sites_teste/atlas">Atlas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Blast</a>
+          <a class="nav-link" href="/sites_teste/colaborate">Colaborete</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/sites_teste/contact">Contact</a>
@@ -145,45 +145,21 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <ul class="list-inline text-center">
           
-          <li class="list-inline-item">
-            <a href="mailto:petroskilp@gmail.com">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
           
           <li class="list-inline-item">
-            <a href="https://twitter.com/SBootstrap">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-          
-          <li class="list-inline-item">
-            <a href="https://www.facebook.com/StartBootstrap">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+            <a href="https://www.pucpr.br/">
+              <span class="fa-lg">
+                
+                <img src="img/sponsors/pucpr_red.svg">
               </span>
             </a>
           </li>
           
           
           
-          <li class="list-inline-item">
-            <a href="https://github.com/StartBootstrap">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
+          
+          
+          
           
           
         </ul>
@@ -217,26 +193,21 @@
           // get values from FORM
           var name = $("input#name").val();
           var email = $("input#email").val();
-          var phone = $("input#phone").val();
-          var message = $("textarea#message").val();
+          var comments = $("textarea#comments").val();
           var firstName = name; // For Success/Failure Message
           // Check for white space in name for Success/Fail message
           if (firstName.indexOf(' ') >= 0) {
             firstName = name.split(' ').slice(0, -1).join(' ');
           }
           $this = $("#sendMessageButton");
-          $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
-          //https://docs.google.com/forms/d/e/1FAIpQLSeE2Ohn8NY0ih8fojkn-wZrg1mereLj_6b53-nGPH5znECcHg/viewform?usp=pp_url&entry.324077075=nome&entry.1736720101=telefone&entry.1849293650=mail&entry.1000111258=mensagem
-          //https://docs.google.com/forms/d/e/1FAIpQLSeE2Ohn8NY0ih8fojkn-wZrg1mereLj_6b53-nGPH5znECcHg/formResponse?&entry.324077075=nome&entry.1736720101=telefone&entry.1849293650=mail&entry.1000111258=mensagem&submit=SUBMIT
-          var formId = '1FAIpQLSeE2Ohn8NY0ih8fojkn-wZrg1mereLj_6b53-nGPH5znECcHg'
-          var queryString = '/formResponse?entry.324077075='+name+'&entry.1736720101='+phone+'&entry.1849293650='+email+'&entry.1000111258='+message+'&submit=SUBMIT';
-
+          $this.prop("disabled", true);
+          //https://docs.google.com/forms/d/e/1FAIpQLSeeJuoVN7C6Is6zyt-fS3Wwt9RZC6AQ51_NaIkXcBKK9gezFQ/viewform?usp=pp_url&entry.582319841=name&entry.2085246190=email&entry.1456197310=comments
+          var formId = '1FAIpQLSeeJuoVN7C6Is6zyt-fS3Wwt9RZC6AQ51_NaIkXcBKK9gezFQ'
           var url = 'https://docs.google.com/forms/d/e/' + formId + '/formResponse'
           var data ={
-            "entry.324077075": name,
-            "entry.1736720101": phone,
-            "entry.1849293650": email,
-            "entry.1000111258":message,
+            "entry.582319841": name,
+            "entry.2085246190": email,
+            "entry.1456197310": comments,
             "submit": "SUBMIT"
           }
           $.ajax({
@@ -280,48 +251,7 @@
             }
             
           });
-          /*var opts = {
-            method: "GET",
-            mode: "no-cors", // apparently Google will only submit a form if "mode" is "no-cors"
-            redirect: "follow", 
-            referrer: "no-referrer"
-          }*/
-
-          //console.log(fetch(url, opts));
-          /*$.ajax({
-            url: "//formspree.io/petroskilp@gmail.com",
-            type: "POST",
-            data: {
-              name: name,
-              phone: phone,
-              email: email,
-              message: message
-            },
-            cache: false,
-            success: function () {
-              // Success message
-              $('#success').html("<div class='alert alert-success'>");
-              $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;").append("</button>");
-              $('#success > .alert-success').append("<strong>Your message has been sent. </strong>");
-              $('#success > .alert-success').append('</div>');
-              //clear all fields
-              $('#contactForm').trigger("reset");
-            },
-            error: function () {
-              // Fail message
-              $('#success').html("<div class='alert alert-danger'>");
-              $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;").append("</button>");
-              $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!"));
-              $('#success > .alert-danger').append('</div>');
-              //clear all fields
-              $('#contactForm').trigger("reset");
-            },
-            complete: function () {
-              setTimeout(function () {
-                $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
-              }, 1000);
-            }
-          });*/
+          
         },
         filter: function () {
           return $(this).is(":visible");
@@ -339,6 +269,7 @@
       $('#success').html('');
     });
   </script>
+
 
 
 
